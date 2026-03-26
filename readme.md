@@ -1,54 +1,52 @@
-# conda 环境
-```shell
+Conda Environment
+
 conda env create -f environment.yml
 conda activate Dang
-```
-# 运行TDD
 
-```shell
-#设置apikey和输入文件
+Run TDD
+
+# Set API key and input file
 api_key='******'
-# 读取Excel文件
-file_path = 'dataset/result.xlsx'  # 替换为文件路径
-```
-运行
-```shell     
+# Read Excel file
+file_path = 'dataset/result.xlsx'  # Replace with file path
+
+Run
+
 python TDD.py
-```
 
 
-# 运行黑盒测试
 
-修改my_blacktexting.py
+# Run Black-box Testing
 
-```python
-# 读取 输入文件
-excel_file = pd.ExcelFile('dataset/result.xlsx')
+Modify my_blacktexting.py
 
-# 获取指定工作表中的数据
-df = excel_file.parse('Sheet1',nrows=10)
+python
+Read input file
 
-# 设置apikey
-    client = OpenAI(
-        base_url='https://xiaoai.plus/v1',
-        api_key="",
-        http_client=httpx.Client(
-            base_url="https://xiaoai.plus/v1",
-            follow_redirects=True,
-        ),
-    )
+excel_file = pd.ExcelFile(‘dataset/result.xlsx’)
+Get data from specified worksheet
 
-```
+df = excel_file.parse(‘Sheet1’,nrows=10)
+Set API key
 
-运行
-```shell     
+client = OpenAI(
+    base_url='https://xiaoai.plus/v1' ,
+    api_key="",
+    http_client=httpx.Client(
+        base_url="https://xiaoai.plus/v1" ,
+        follow_redirects=True,
+    ),
+)
+
+
+Run
+
+shell
 python my_blacktexting.py
-```
 
-# 运行差分测试
-```shell     
+
+# Run Differential Testing
+
+shell
 python chafen.py
-```
-
-
 
